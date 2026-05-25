@@ -16,7 +16,7 @@ container.style.padding = "20px";
 container.style.justifyContent = "center";
 container.style.alignItems = "center";
 
-document.body.appendChild(container);
+document.getElementById("products").appendChild(container);
 
 let category = new Category(1, "Food", "Food products", 100, true);
 

@@ -45,13 +45,19 @@
   </p>
 </header>
 <div class="video-banner">
-  <marquee behavior="scroll" direction="right" loop="infinite" bgcolor="#0f0f0f">
-    <img src="/img/placeholder.png" alt="freddy">
-    <img src="/img/placeholder.png" alt="freddy">
-    <img src="/img/placeholder.png" alt="freddy">
-  </marquee>
+  <div class="imageScroller" id="imageScroller">
+    <div class="imageTrack" id="imageTrack">
+      <div class="imageSet" id="imageSet">
+        <img src="/img/placeholder.png" alt="freddy">
+        <img src="/img/placeholder.png" alt="freddy">
+        <img src="/img/placeholder.png" alt="freddy">
+      </div>
+    </div>
+  </div>
+
   <div class="video-overlay">
     <p>MailABom</p>
+
     <a href="./assets/pages/about.html">
       <button class="overlay-button">
         Learn More
@@ -74,7 +80,15 @@
   </div>
 </div>
 <script type="module" src="./js/entities/Scroller.js"></script>
+<script type="module" src="./js/entities/ImgScroller.js"></script>
+<div id="products"></div>
 <script type="module" src="js/app.js"></script>
 
+<footer>
+  <p>contact info</p>
+  <p>number: +1 600 222 222</p>
+  <p>Email: email@stuff.com</p>
+  <p>some company .co</p>
+</footer>
 </body>
 </html>
