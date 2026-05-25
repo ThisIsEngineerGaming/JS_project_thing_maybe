@@ -10,6 +10,128 @@
 <body>
 
 <script type="module" src="js/app.js"></script>
-
+<script>
+  // class Product {
+  //   constructor(imageUrl, name, rating, price, discountedprice) {
+  //     this.imageUrl = imageUrl;
+  //     this.name = name;
+  //     this.rating = rating;
+  //     this.price = price;
+  //     this.discountedprice = discountedprice;
+  //   }
+  //
+  //   createCard(container) {
+  //     let card = document.createElement("div");
+  //     card.style.backgroundColor = "white";
+  //     card.style.borderRadius = "15px";
+  //     card.style.padding = "15px";
+  //     card.style.boxShadow = "0px 2px 10px rgba(0,0,0,0.15)";
+  //     card.style.display = "flex";
+  //     card.style.flexDirection = "column";
+  //     card.style.alignItems = "center";
+  //     card.style.gap = "10px";
+  //
+  //     let img = document.createElement("img");
+  //     img.src = this.imageUrl;
+  //     img.alt = this.name;
+  //     img.style.width = "100%";
+  //     img.style.height = "180px";
+  //     img.style.objectFit = "contain";
+  //
+  //     let title = document.createElement("p");
+  //     title.textContent = this.name;
+  //     title.style.fontSize = "20px";
+  //     title.style.fontWeight = "bold";
+  //     title.style.textAlign = "center";
+  //     title.style.margin = "0";
+  //
+  //     let rating = document.createElement("div");
+  //
+  //     let stars = "";
+  //
+  //     for(let i = 0; i < this.rating; i++) {
+  //       stars += "\u2605"; // https://www.compart.com/en/unicode/U+2605
+  //     }
+  //
+  //     for(let i = this.rating; i < 5; i++) {
+  //       stars += "\u2606"; // https://www.compart.com/en/unicode/U+2606
+  //     }
+  //
+  //     rating.textContent = stars;
+  //     rating.style.color = "gold";
+  //     rating.style.fontSize = "22px";
+  //
+  //     let prices = document.createElement("div");
+  //     prices.style.display = "flex";
+  //     prices.style.gap = "10px";
+  //     prices.style.alignItems = "center";
+  //
+  //     let oldPrice = document.createElement("p");
+  //     oldPrice.textContent = this.price + " $";
+  //     oldPrice.style.textDecoration = "line-through";
+  //     oldPrice.style.color = "gray";
+  //     oldPrice.style.fontSize = "16px";
+  //     oldPrice.style.margin = "0";
+  //
+  //     let newPrice = document.createElement("p");
+  //     newPrice.textContent = this.discountedprice + " $";
+  //     newPrice.style.color = "red";
+  //     newPrice.style.fontWeight = "bold";
+  //     newPrice.style.fontSize = "22px";
+  //     newPrice.style.margin = "0";
+  //
+  //     prices.appendChild(oldPrice);
+  //     prices.appendChild(newPrice);
+  //
+  //     let button = document.createElement("button");
+  //     button.textContent = "Add to cart";
+  //     button.style.width = "100%";
+  //     button.style.padding = "12px";
+  //     button.style.border = "none";
+  //     button.style.borderRadius = "10px";
+  //     button.style.backgroundColor = "#00a046";
+  //     button.style.color = "white";
+  //     button.style.fontSize = "16px";
+  //     button.style.cursor = "pointer";
+  //
+  //     card.appendChild(img);
+  //     card.appendChild(title);
+  //     card.appendChild(rating);
+  //     card.appendChild(prices);
+  //     card.appendChild(button);
+  //
+  //     container.appendChild(card);
+  //   }
+  // }
+  //
+  // class ProductGenerator {
+  //   constructor() {
+  //     this.products = [];
+  //   }
+  //
+  //   generate(productsCount) {
+  //     let container = document.createElement("div");
+  //     container.style.display = "grid";
+  //     container.style.gridTemplateColumns = "20% 20% 20% 20% 20%";
+  //     container.style.gap = "20px";
+  //     container.style.padding = "20px";
+  //     document.body.style.backgroundColor = "#f5f5f5";
+  //     document.body.style.margin = "0";
+  //     document.body.appendChild(container);
+  //
+  //     for(let i = 0; i < productsCount; i++) {
+  //
+  //       let product = new Product(
+  //         "https://www.smart-tbk.com/wp-content/uploads/2025/06/Cooking-Oil-Industrial-Packed-Products.jpg", "Oil", 4, 120, 89);
+  //       this.products.push(product);
+  //       product.createCard(container);
+  //     }
+  //   }
+  // }
+  //
+  // let generator = new ProductGenerator();
+  //
+  // generator.generate(25);
+</script>
 </body>
 </html>
