@@ -12,8 +12,9 @@ let container = document.createElement("div");
 
 container.style.display = "grid";
 container.style.gridTemplateColumns = "20% 20% 20% 20% 20%";
-container.style.gap = "20px";
 container.style.padding = "20px";
+container.style.justifyContent = "center";
+container.style.alignItems = "center";
 
 document.body.appendChild(container);
 

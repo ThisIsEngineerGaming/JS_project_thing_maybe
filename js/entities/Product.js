@@ -18,9 +18,7 @@ export default class Product {
     let card = document.createElement("div");
 
     card.style.backgroundColor = "white";
-    card.style.borderRadius = "15px";
     card.style.padding = "15px";
-    card.style.boxShadow = "0px 2px 10px rgba(0,0,0,0.15)";
     card.style.display = "flex";
     card.style.flexDirection = "column";
     card.style.alignItems = "center";
@@ -74,7 +72,7 @@ export default class Product {
 
     button.textContent = "Add to cart";
     button.style.padding = "10px";
-    button.style.backgroundColor = "green";
+    button.style.backgroundColor = "black";
     button.style.color = "white";
     button.style.border = "none";
     button.style.borderRadius = "10px";
