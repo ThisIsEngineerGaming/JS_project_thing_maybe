@@ -6,18 +6,18 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cart.css">
   <title>Cart</title>
 </head>
 <body>
 <header>
   <div class="navigation">
-    <a href="./html/about.html">
+    <a href="/html/about.html">
       <button id="about">
         About
       </button>
     </a>
-    <a href="./html/thing.html">
+    <a href="/html/thing.html">
       <button id="thing">
         thing
       </button>
@@ -27,12 +27,12 @@
         Homepage
       </button>
     </a>
-    <a href="./html/cart.html">
+    <a href="/html/cart.html">
       <button id="cart">
         Cart
       </button>
     </a>
-    <a href="./html/forum.html">
+    <a href="/html/forum.html">
       <button id="forum">
         Forum
       </button>
@@ -42,5 +42,63 @@
     MailABom
   </p>
 </header>
+<div class="container">
+  <h2>Delivery form</h2>
+  <hr>
+
+  <form>
+    <div class="grid">
+
+      <div>
+        <div class="section-title">Info</div>
+        <div class="field"><input type="text" placeholder="Name, Surname"></div>
+        <div class="field"><input type="tel" placeholder="+380XXXXXXXXX"></div>
+        <div class="field"><input type="text" placeholder="Special Instructions"></div>
+      </div>
+
+      <div>
+        <div class="section-title">Delivery</div>
+        <div class="field">
+          <div class="field-label">Way to deliver</div>
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="field-label">Address</div>
+          <input type="text" placeholder="City, Street">
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Payment</div>
+        <label class="radio-row">
+          <input type="radio" name="payment" value="cod">
+          On pick up
+        </label>
+        <label class="radio-row">
+          <input type="radio" name="payment" value="card" checked>
+          Card
+        </label>
+      </div>
+
+
+
+    <div>
+      <label class="checkbox-row">
+        <input type="checkbox" name="register">
+        Register
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" name="no_call" checked>
+        The decision is final, don't call me back.
+      </label>
+    </div>
+    <button type="submit" class="submit-btn">Send</button>
+  </div>
+  </form>
+</div>
 </body>
 </html>
