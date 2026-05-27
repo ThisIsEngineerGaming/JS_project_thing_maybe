@@ -47,57 +47,98 @@
   <hr>
 
   <form>
+
     <div class="grid">
 
       <div>
         <div class="section-title">Info</div>
-        <div class="field"><input type="text" placeholder="Name, Surname"></div>
-        <div class="field"><input type="tel" placeholder="+380XXXXXXXXX"></div>
-        <div class="field"><input type="text" placeholder="Special Instructions"></div>
+
+        <div class="field">
+          <input
+            type="text"
+            placeholder="Name, Surname"
+            minlength="3"
+            maxlength="40"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <input
+            type="tel"
+            placeholder="+380XXXXXXXXX"
+            pattern="^\+?[0-9]{10,15}$"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <input
+            type="text"
+            placeholder="Special Instructions"
+            maxlength="120"
+          >
+        </div>
       </div>
 
       <div>
         <div class="section-title">Delivery</div>
+
         <div class="field">
           <div class="field-label">Way to deliver</div>
-          <select>
+
+          <select required>
+            <option value="">Choose delivery</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
           </select>
         </div>
+
         <div class="field">
           <div class="field-label">Address</div>
-          <input type="text" placeholder="City, Street">
+
+          <input
+            type="text"
+            placeholder="City, Street"
+            minlength="5"
+            maxlength="80"
+            required
+          >
         </div>
       </div>
 
       <div>
         <div class="section-title">Payment</div>
+
         <label class="radio-row">
-          <input type="radio" name="payment" value="cod">
+          <input type="radio" name="payment" value="cod" required>
           On pick up
         </label>
+
         <label class="radio-row">
-          <input type="radio" name="payment" value="card" checked>
+          <input type="radio" name="payment" value="card">
           Card
         </label>
       </div>
 
+      <div>
+        <label class="checkbox-row">
+          <input type="checkbox" name="register">
+          Register
+        </label>
 
+        <label class="checkbox-row">
+          <input type="checkbox" name="no_call" checked>
+          The decision is final, don't call me back.
+        </label>
+      </div>
 
-    <div>
-      <label class="checkbox-row">
-        <input type="checkbox" name="register">
-        Register
-      </label>
-      <label class="checkbox-row">
-        <input type="checkbox" name="no_call" checked>
-        The decision is final, don't call me back.
-      </label>
+      <button type="submit" class="submit-btn">
+        Send
+      </button>
+
     </div>
-    <button type="submit" class="submit-btn">Send</button>
-  </div>
   </form>
 </div>
 </body>
