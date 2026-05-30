@@ -1,4 +1,5 @@
-import { addToCart } from "/js/entities/Cart.js";
+import cartCookie from "/js/cart.js";
+const addToCart = cartCookie.addToCart;
 
 export default class Product {
   constructor(id, imageUrl, name, rating, price, discountedPrice, category, manufacturer) {

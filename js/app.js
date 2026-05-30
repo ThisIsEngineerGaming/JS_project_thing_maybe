@@ -1,8 +1,6 @@
 import Product from "./entities/Product.js";
 import Category from "./entities/Category.js";
 import Manufacturer from "./entities/Manufacturer.js";
-import Cart from "/js/entities/Cart.js";
-import { addToCart } from "/js/entities/Cart.js";
 import Customer from "./entities/Customer.js";
 import Order from "./entities/Order.js";
 
