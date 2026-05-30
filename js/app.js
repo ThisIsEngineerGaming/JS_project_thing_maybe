@@ -68,3 +68,4 @@ function renderProducts(fromId, toId) {
 }
 
 renderProducts(0, 19);
+// npx webpack serve --config webpack.config.dev.js
