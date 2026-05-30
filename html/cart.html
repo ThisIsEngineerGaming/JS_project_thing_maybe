@@ -8,82 +8,61 @@
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="/css/cart.css">
   <title>Cart</title>
+  <style>
+    /* Override fixed form to normal flow so cart panel sits beside it */
+    form {
+      position: static;
+      transform: none;
+      margin: 40px auto;
+      width: max-content;
+      max-width: 95vw;
+    }
+  </style>
 </head>
 <body>
 <header>
   <div class="navigation">
-    <a href="/html/about.html">
-      <button id="aboutnav">
-        About
-      </button>
-    </a>
-    <a href="/html/products.html">
-      <button id="productsnav">
-        Products
-      </button>
-    </a>
-    <a href="/index.html">
-      <button id="homepagenav">
-        Homepage
-      </button>
-    </a>
-    <a href="/html/cart.html">
-      <button id="cartnav">
-        Cart
-      </button>
-    </a>
-    <a href="/html/forum.html">
-      <button id="forumnav">
-        Forum
-      </button>
-    </a>
+    <a href="/html/about.html"><button id="aboutnav">About</button></a>
+    <a href="/html/products.html"><button id="productsnav">Products</button></a>
+    <a href="/index.html"><button id="homepagenav">Homepage</button></a>
+    <a href="/html/cart.html"><button id="cartnav">Cart</button></a>
+    <a href="/html/forum.html"><button id="forumnav">Forum</button></a>
   </div>
-  <p>
-    MailABom
-  </p>
+  <p>MailABom</p>
 </header>
+
 <div class="container">
   <form>
-
     <div class="grid">
-
+      <div class="cart-panel">
+        <div class="section-title">Your Items</div>
+        <div id="cart-items">
+          <p class="empty-cart">Your cart is empty.</p>
+        </div>
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span>$<span id="cart-total">0.00</span></span>
+        </div>
+        <button type="button" class="clear-cart-btn" onclick="window.clearCart()">
+          Clear cart
+        </button>
+      </div>
       <div>
         <div class="section-title">Info</div>
-
         <div class="field">
-          <input
-            type="text"
-            placeholder="Name, Surname"
-            minlength="3"
-            maxlength="40"
-            required
-          >
+          <input type="text" placeholder="Name, Surname" minlength="3" maxlength="40" required>
         </div>
-
         <div class="field">
-          <input
-            type="tel"
-            placeholder="+380XXXXXXXXX"
-            pattern="^\+?[0-9]{10,15}$"
-            required
-          >
+          <input type="tel" placeholder="+380XXXXXXXXX" pattern="^\+?[0-9]{10,15}$" required>
         </div>
-
         <div class="field">
-          <input
-            type="text"
-            placeholder="Special Instructions"
-            maxlength="120"
-          >
+          <input type="text" placeholder="Special Instructions" maxlength="120">
         </div>
       </div>
-
       <div>
         <div class="section-title">Delivery</div>
-
         <div class="field">
           <div class="field-label">Way to deliver</div>
-
           <select required>
             <option value="">Choose delivery</option>
             <option>1</option>
@@ -91,52 +70,39 @@
             <option>3</option>
           </select>
         </div>
-
         <div class="field">
           <div class="field-label">Address</div>
-
-          <input
-            type="text"
-            placeholder="City, Street"
-            minlength="5"
-            maxlength="80"
-            required
-          >
+          <input type="text" placeholder="City, Street" minlength="5" maxlength="80" required>
         </div>
       </div>
-
       <div>
         <div class="section-title">Payment</div>
-
         <label class="radio-row">
           <input type="radio" name="payment" value="cod" required>
           On pick up
         </label>
-
         <label class="radio-row">
           <input type="radio" name="payment" value="card">
           Card
         </label>
       </div>
-
       <div>
         <label class="checkbox-row">
           <input type="checkbox" name="register">
           Register
         </label>
-
         <label class="checkbox-row">
           <input type="checkbox" name="no_call" checked>
           The decision is final, don't call me back.
         </label>
       </div>
 
-      <button type="submit" class="submit-btn">
-        Send
-      </button>
+      <button type="submit" class="submit-btn">Send</button>
 
     </div>
   </form>
 </div>
+
+<script type="module" src="/js/entities/Cart.js"></script>
 </body>
 </html>

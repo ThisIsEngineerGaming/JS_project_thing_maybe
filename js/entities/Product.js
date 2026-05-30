@@ -1,3 +1,5 @@
+import { addToCart } from "/js/entities/Cart.js";
+
 export default class Product {
   constructor(id, imageUrl, name, rating, price, discountedPrice, category, manufacturer) {
     this.id = id;
@@ -29,8 +31,8 @@ export default class Product {
     card.style.justifyContent = "space-between";
     card.style.overflow = "hidden";
     card.classList.add("product-card");
-    let img = document.createElement("img");
 
+    let img = document.createElement("img");
     img.src = this.imageUrl;
     img.alt = this.name;
     img.style.width = "100%";
@@ -38,53 +40,47 @@ export default class Product {
     img.style.objectFit = "contain";
 
     let title = document.createElement("p");
-
     title.textContent = this.name;
     title.style.fontSize = "20px";
     title.style.fontWeight = "bold";
     title.style.margin = "0";
 
     let rating = document.createElement("div");
-
     let stars = "";
-
-    for(let i = 0; i < this.rating; i++) {
-      stars += "\u2605"; // https://www.compart.com/en/unicode/search?q=star#characters
-    }
-
-    for(let i = this.rating; i < 5; i++) {
-      stars += "\u2606";
-    }
-
+    for (let i = 0; i < this.rating; i++)  stars += "\u2605";
+    for (let i = this.rating; i < 5; i++)  stars += "\u2606";
     rating.textContent = stars;
     rating.style.color = "gold";
     rating.style.fontSize = "22px";
 
     let oldPrice = document.createElement("p");
-
     oldPrice.textContent = this.price + " $";
     oldPrice.style.textDecoration = "line-through";
     oldPrice.style.margin = "0";
 
     let newPrice = document.createElement("p");
-
     newPrice.textContent = this.discountedPrice + " $";
     newPrice.style.color = "red";
     newPrice.style.fontWeight = "bold";
     newPrice.style.margin = "0";
 
     let button = document.createElement("button");
-
     button.textContent = "Add to cart";
     button.style.padding = "10px";
     button.style.backgroundColor = "black";
     button.style.color = "white";
     button.style.border = "none";
     button.style.borderRadius = "10px";
-    button.addEventListener("click", function() {
-      addToCart(this.id);
-    });
     button.classList.add("add-to-cart-btn");
+
+    const product = this;
+    button.addEventListener("click", function () {
+      addToCart({
+        id:    product.id,
+        name:  product.name,
+        price: product.discountedPrice,
+      });
+    });
 
     card.appendChild(img);
     card.appendChild(title);
