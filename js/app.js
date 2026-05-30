@@ -3,6 +3,7 @@ import Category from "./entities/Category.js";
 import Manufacturer from "./entities/Manufacturer.js";
 import Customer from "./entities/Customer.js";
 import Order from "./entities/Order.js";
+import "./entities/Scroller.js";
 
 
 document.body.style.backgroundColor = "#f5f5f5";

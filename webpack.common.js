@@ -5,8 +5,8 @@ module.exports = {
     app: './js/app.js',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'js/dist'),
     clean: true,
-    filename: './js/app.js',
+    filename: 'app.bundle.js',
   },
 };
