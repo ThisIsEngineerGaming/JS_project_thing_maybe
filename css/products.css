@@ -9,7 +9,6 @@ body {
   line-height: 1.6;
 }
 
-/* TITLES */
 
 h1,
 h3 {
@@ -20,7 +19,6 @@ h1 {
   font-size: 3rem;
 }
 
-/* HEADER */
 
 header {
   background-color: dodgerblue;
@@ -48,8 +46,6 @@ header button {
 header button:hover {
   opacity: 0.8;
 }
-
-/* NAVIGATION */
 
 .navigation {
   display: flex;
