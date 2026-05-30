@@ -1,7 +1,7 @@
 let imageTrack = document.getElementById("imageTrack");
 let imageSet = document.getElementById("imageSet");
 
-for (let i = 0; i < 4; i++) {
+while (imageTrack.offsetWidth < window.innerWidth * 2) {
   imageTrack.appendChild(imageSet.cloneNode(true));
 }
 
