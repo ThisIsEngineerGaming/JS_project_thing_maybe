@@ -6,35 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Shop</title>
 </head>
 
 <body>
 <header>
   <div class="navigation">
-    <a href="./html/about.html">
+    <a href="/html/about.html">
       <button id="about">
         About
       </button>
     </a>
-    <a href="./html/thing.html">
+    <a href="/html/thing.html">
       <button id="thing">
         thing
       </button>
     </a>
-    <a href="./index.html">
+    <a href="/index.html">
       <button id="homepage">
         Homepage
       </button>
     </a>
-    <a href="./html/cart.html">
+    <a href="/html/cart.html">
       <button id="cart">
         Cart
       </button>
     </a>
-    <a href="./html/forum.html">
+    <a href="/html/forum.html">
       <button id="forum">
         Forum
       </button>
@@ -45,20 +45,14 @@
   </p>
 </header>
 <div class="video-banner">
-  <div class="imageScroller" id="imageScroller">
-    <div class="imageTrack" id="imageTrack">
-      <div class="imageSet" id="imageSet">
-        <img src="/img/placeholder.png" alt="freddy">
-        <img src="/img/placeholder.png" alt="freddy">
-        <img src="/img/placeholder.png" alt="freddy">
-      </div>
-    </div>
-  </div>
-
+  <marquee behavior="scroll" direction="right" loop="infinite" bgcolor="#0f0f0f">
+    <img src="/img/placeholder.png" alt="freddy">
+    <img src="/img/placeholder.png" alt="freddy">
+    <img src="/img/placeholder.png" alt="freddy">
+  </marquee>
   <div class="video-overlay">
     <p>MailABom</p>
-
-    <a href="./assets/pages/about.html">
+    <a href="/assets/pages/about.html">
       <button class="overlay-button">
         Learn More
       </button>
@@ -79,16 +73,8 @@
     </div>
   </div>
 </div>
-<script type="module" src="./js/entities/Scroller.js"></script>
-<script type="module" src="./js/entities/ImgScroller.js"></script>
-<div id="products"></div>
-<script type="module" src="js/app.js"></script>
+<script type="module" src="/js/entities/Scroller.js"></script>
+<script type="module" src="/js/app.js"></script>
 
-<footer>
-  <p>contact info</p>
-  <p>number: +1 600 222 222</p>
-  <p>Email: email@stuff.com</p>
-  <p>some company .co</p>
-</footer>
 </body>
 </html>
