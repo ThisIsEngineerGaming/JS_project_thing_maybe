@@ -25,13 +25,16 @@ export default class Product {
     card.style.gap = "10px";
     card.style.width = "200px";
     card.style.flexShrink = "0";
-
+    card.style.height = "380px";
+    card.style.justifyContent = "space-between";
+    card.style.overflow = "hidden";
+    card.classList.add("product-card");
     let img = document.createElement("img");
 
     img.src = this.imageUrl;
     img.alt = this.name;
     img.style.width = "100%";
-    img.style.height = "180px";
+    img.style.height = "120px";
     img.style.objectFit = "contain";
 
     let title = document.createElement("p");
@@ -78,6 +81,10 @@ export default class Product {
     button.style.color = "white";
     button.style.border = "none";
     button.style.borderRadius = "10px";
+    button.addEventListener("click", function() {
+      addToCart(this.id);
+    });
+    button.classList.add("add-to-cart-btn");
 
     card.appendChild(img);
     card.appendChild(title);
