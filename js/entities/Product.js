@@ -23,6 +23,8 @@ export default class Product {
     card.style.flexDirection = "column";
     card.style.alignItems = "center";
     card.style.gap = "10px";
+    card.style.width = "200px";
+    card.style.flexShrink = "0";
 
     let img = document.createElement("img");
 

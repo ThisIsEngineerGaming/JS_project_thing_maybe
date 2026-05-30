@@ -220,3 +220,8 @@ footer p {
   display: block;
   flex-shrink: 0;
 }
+#products {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}

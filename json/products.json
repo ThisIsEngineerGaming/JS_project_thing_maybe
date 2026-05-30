@@ -1,14 +1,202 @@
-{
-  "name": "json",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+[
+  {
+    "id": 0,
+    "imageUrl": "https://www.smart-tbk.com/wp-content/uploads/2025/06/Cooking-Oil-Industrial-Packed-Products.jpg",
+    "name": "Cooking Oil",
+    "rating": 4,
+    "price": 120,
+    "discountedPrice": 89,
+    "categoryId": 1,
+    "manufacturerId": 1
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ThisIsEngineerGaming/JS_project_thing_maybe.git"
+  {
+    "id": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400",
+    "name": "Olive Oil Extra Virgin",
+    "rating": 5,
+    "price": 180,
+    "discountedPrice": 149,
+    "categoryId": 1,
+    "manufacturerId": 1
   },
-  "private": true
-}
+  {
+    "id": 2,
+    "imageUrl": "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?w=400",
+    "name": "Whole Grain Bread",
+    "rating": 4,
+    "price": 35,
+    "discountedPrice": 29,
+    "categoryId": 1,
+    "manufacturerId": 2
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=400",
+    "name": "Fresh Milk 1L",
+    "rating": 5,
+    "price": 25,
+    "discountedPrice": 22,
+    "categoryId": 1,
+    "manufacturerId": 2
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=400",
+    "name": "Cheddar Cheese",
+    "rating": 4,
+    "price": 95,
+    "discountedPrice": 79,
+    "categoryId": 1,
+    "manufacturerId": 2
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-eggs-1296x728-feature.jpg",
+    "name": "Free Range Eggs (12)",
+    "rating": 5,
+    "price": 55,
+    "discountedPrice": 49,
+    "categoryId": 1,
+    "manufacturerId": 3
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://images.unsplash.com/photo-1490885578174-acda8905c2c6?w=400",
+    "name": "Organic Honey 500g",
+    "rating": 5,
+    "price": 140,
+    "discountedPrice": 119,
+    "categoryId": 1,
+    "manufacturerId": 3
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400",
+    "name": "Greek Yogurt",
+    "rating": 4,
+    "price": 45,
+    "discountedPrice": 38,
+    "categoryId": 1,
+    "manufacturerId": 2
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400",
+    "name": "Spaghetti 500g",
+    "rating": 3,
+    "price": 30,
+    "discountedPrice": 24,
+    "categoryId": 1,
+    "manufacturerId": 4
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400",
+    "name": "Tomato Sauce",
+    "rating": 4,
+    "price": 40,
+    "discountedPrice": 32,
+    "categoryId": 1,
+    "manufacturerId": 4
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400",
+    "name": "Orange Juice 1L",
+    "rating": 4,
+    "price": 60,
+    "discountedPrice": 49,
+    "categoryId": 1,
+    "manufacturerId": 3
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://bluejeanchef.com/uploads/2021/07/Mixed-Berry-Tiramisu-1280-4051-819x1024.jpg",
+    "name": "Mixed Berries 300g",
+    "rating": 5,
+    "price": 75,
+    "discountedPrice": 65,
+    "categoryId": 1,
+    "manufacturerId": 3
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400",
+    "name": "Peanut Butter 400g",
+    "rating": 4,
+    "price": 85,
+    "discountedPrice": 69,
+    "categoryId": 1,
+    "manufacturerId": 4
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400",
+    "name": "Burger Patties (4pc)",
+    "rating": 3,
+    "price": 130,
+    "discountedPrice": 109,
+    "categoryId": 1,
+    "manufacturerId": 4
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://images.unsplash.com/photo-1517093157656-b9eccef91cb1?w=400",
+    "name": "Dark Chocolate 100g",
+    "rating": 5,
+    "price": 50,
+    "discountedPrice": 42,
+    "categoryId": 1,
+    "manufacturerId": 5
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400",
+    "name": "Green Tea (20 bags)",
+    "rating": 4,
+    "price": 65,
+    "discountedPrice": 55,
+    "categoryId": 1,
+    "manufacturerId": 5
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://images.unsplash.com/photo-1559622214-f8a9850965bb?w=400",
+    "name": "Sea Salt 500g",
+    "rating": 3,
+    "price": 20,
+    "discountedPrice": 15,
+    "categoryId": 1,
+    "manufacturerId": 5
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://images.unsplash.com/photo-1612544448445-b8232cff3b6c?w=400",
+    "name": "Basmati Rice 1kg",
+    "rating": 4,
+    "price": 70,
+    "discountedPrice": 59,
+    "categoryId": 1,
+    "manufacturerId": 4
+  },
+  {
+    "id": 18,
+    "imageUrl": "https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?w=400",
+    "name": "Almond Milk 1L",
+    "rating": 4,
+    "price": 90,
+    "discountedPrice": 75,
+    "categoryId": 1,
+    "manufacturerId": 3
+  },
+  {
+    "id": 19,
+    "imageUrl": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400",
+    "name": "Sweet Potato 1kg",
+    "rating": 4,
+    "price": 45,
+    "discountedPrice": 36,
+    "categoryId": 1,
+    "manufacturerId": 3
+  }
+]
