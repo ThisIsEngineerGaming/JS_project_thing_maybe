@@ -153,13 +153,16 @@ h2 {
 }
 
 form {
-  top: 20%;
-  left: 41%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: fixed;
   border-radius: 15px;
   background-color: lightskyblue;
   border: 1px solid dodgerblue;
   padding: 24px;
+  width: max-content;
+  max-width: 95vw;
 }
 
 .section-title {
@@ -258,4 +261,11 @@ form {
 
 .submit-btn:hover {
   background: #0077ea;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
 }
