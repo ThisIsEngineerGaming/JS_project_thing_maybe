@@ -8,6 +8,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icon.png">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/products.css">
   <title>Products</title>
 </head>
 
@@ -15,40 +16,78 @@
 <header>
   <div class="navigation">
     <a href="/html/about.html">
-      <button id="aboutnav">
-        About
-      </button>
+      <button id="aboutnav">About</button>
     </a>
     <a href="/html/products.html">
-      <button id="productsnav">
-        Products
-      </button>
+      <button id="productsnav">Products</button>
     </a>
     <a href="/index.html">
-      <button id="homepagenav">
-        Homepage
-      </button>
+      <button id="homepagenav">Homepage</button>
     </a>
     <a href="/html/cart.html">
-      <button id="cartnav">
-        Cart
-      </button>
+      <button id="cartnav">Cart</button>
     </a>
     <a href="/html/forum.html">
-      <button id="forumnav">
-        Forum
-      </button>
+      <button id="forumnav">Forum</button>
     </a>
   </div>
-  <p>
-    MailABom
-  </p>
+  <p>MailABom</p>
 </header>
-<div id="products"></div>
+
+
+<div class="search-bar-wrapper">
+  <div class="search-bar-inner">
+<!--    <span class="search-icon">&#128269;</span>-->
+    <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off" />
+    <button id="clearSearch" title="Clear">&#10005;</button>
+  </div>
+</div>
+
+<div class="products-page-layout">
+
+  <aside class="filter-sidebar">
+    <div class="sidebar-section">
+      <h3>Category</h3>
+      <ul id="categoryList">
+        <li class="filter-item active" data-category="all">All</li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <h3>Manufacturer</h3>
+      <ul id="manufacturerList">
+        <li class="filter-item active" data-manufacturer="all">All</li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <h3>Rating</h3>
+      <ul id="ratingList">
+        <li class="filter-item active" data-rating="all">All</li>
+        <li class="filter-item" data-rating="5">&#9733;&#9733;&#9733;&#9733;&#9733;</li>
+        <li class="filter-item" data-rating="4">&#9733;&#9733;&#9733;&#9733;+</li>
+        <li class="filter-item" data-rating="3">&#9733;&#9733;&#9733;+</li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="products-main">
+    <div class="results-info">
+      <span id="resultsCount"></span>
+    </div>
+    <div id="products">
+      <div id="productsContainer"></div>
+    </div>
+    <div id="noResults" class="no-results" style="display:none;">
+      No products found matching your search.
+    </div>
+  </div>
+
+</div>
+
 <script type="module" src="/js/app.js"></script>
+
 <footer>
   <p>mailabom@gmail.gamer</p>
-  <p>2026 &copy</p>
+  <p>2026 &copy;</p>
 </footer>
 </body>
 </html>
