@@ -72,10 +72,25 @@ export default class Product {
     button.style.color = "white";
     button.style.border = "none";
     button.style.borderRadius = "10px";
+    button.style.transition = "transform 0.1s ease, background-color 0.15s ease";
     button.classList.add("add-to-cart-btn");
 
     const product = this;
     button.addEventListener("click", function () {
+      button.style.transform = "scale(0.88)";
+      setTimeout(() => { button.style.transform = "scale(1.08)"; }, 100);
+      setTimeout(() => { button.style.transform = "scale(1)";    }, 200);
+
+      button.textContent = "Added!";
+      button.style.backgroundColor = "#22a855";
+      button.disabled = true;
+
+      setTimeout(() => {
+        button.textContent = "Add to cart";
+        button.style.backgroundColor = "black";
+        button.disabled = false;
+      }, 1200);
+
       addToCart({
         id:    product.id,
         name:  product.name,
