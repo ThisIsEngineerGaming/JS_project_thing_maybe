@@ -1,0 +1,335 @@
+/* ── ADMIN PAGE STYLES ── */
+
+/* LOGIN */
+.login-screen {
+  min-height: calc(100vh - 180px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f0f4f8;
+}
+
+.login-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-box h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1a1a1a;
+}
+
+.login-sub {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: -8px;
+}
+
+.login-box label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.login-box input {
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-box input:focus {
+  border-color: dodgerblue;
+}
+
+.login-box button {
+  margin-top: 8px;
+  padding: 12px;
+  background: dodgerblue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.login-box button:hover {
+  background: #1a7fd4;
+  transform: translateY(-1px);
+}
+
+.login-error {
+  background: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5c6c2;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ADMIN PANEL */
+.admin-panel {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px 60px;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-header h1 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.btn-logout {
+  padding: 8px 20px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-logout:hover { background: #c0392b; }
+
+/* SECTIONS */
+.admin-section {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.admin-section h2 {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ADD FORM */
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 9px 13px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: dodgerblue;
+}
+
+.form-error {
+  background: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5c6c2;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+.btn-add {
+  align-self: flex-start;
+  padding: 11px 28px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-add:hover {
+  background: #1e8449;
+  transform: translateY(-1px);
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+#productTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+#productTable th {
+  background: #f0f4f8;
+  color: #555;
+  font-weight: 700;
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 2px solid #dde3ea;
+  white-space: nowrap;
+}
+
+#productTable td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  color: #333;
+}
+
+#productTable tbody tr:hover {
+  background: #f7f9fc;
+}
+
+#productTable img.thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.btn-remove {
+  padding: 6px 14px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-remove:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.count-badge {
+  background: dodgerblue;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* SAVE SECTION */
+.save-section p {
+  color: #666;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.btn-save {
+  padding: 11px 28px;
+  background: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-save:hover {
+  background: #1f6391;
+  transform: translateY(-1px);
+}
+
+.save-status {
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.save-status--saving {
+  background: #eaf4fb;
+  color: #2471a3;
+  border: 1px solid #aed6f1;
+}
+
+.save-status--ok {
+  background: #eafaf1;
+  color: #1e8449;
+  border: 1px solid #a9dfbf;
+}
+
+.save-status--error {
+  background: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5c6c2;
+}
+
+.save-status--warn {
+  background: #fef9e7;
+  color: #b7770d;
+  border: 1px solid #f9e79f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .admin-panel { padding: 0 12px 40px; }
+  .admin-section { padding: 20px 16px; }
+  .login-box { padding: 32px 24px; }
+}

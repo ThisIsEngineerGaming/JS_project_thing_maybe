@@ -198,5 +198,15 @@
     "discountedPrice": 36,
     "categoryId": 1,
     "manufacturerId": 3
+  },
+  {
+    "id": 20,
+    "imageUrl": "https://ecsmedia.pl/cdn-cgi/image/format=avif,width=544,height=544,/c/wydruk-cukrowy-oplatek-na-tort-masa-cukrowa-spongebob-8-imie-tekst-b-iext218258496.jpg",
+    "name": "SpaunchBab",
+    "rating": 5,
+    "price": 999,
+    "discountedPrice": 999,
+    "categoryId": 1,
+    "manufacturerId": 1
   }
 ]
