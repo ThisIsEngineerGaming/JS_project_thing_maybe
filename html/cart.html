@@ -7,6 +7,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Cart</title>
   <style>
     /* Override fixed form to normal flow so cart panel sits beside it */
@@ -22,13 +23,28 @@
 <body>
 <header>
   <div class="navigation">
-    <a href="/html/about.html"><button id="aboutnav">About</button></a>
-    <a href="/html/products.html"><button id="productsnav">Products</button></a>
-    <a href="/index.html"><button id="homepagenav">Homepage</button></a>
-    <a href="/html/cart.html"><button id="cartnav">Cart</button></a>
-    <a href="/html/forum.html"><button id="forumnav">Forum</button></a>
+    <a href="/html/products.html">
+      <button id="productsnav">
+        Products
+      </button>
+    </a>
+    <a href="/index.html">
+      <button id="homepagenav">
+        Homepage
+      </button>
+    </a>
+    <a href="/html/cart.html">
+      <button id="cartnav">
+        Cart
+      </button>
+    </a>
+    <a>
+      <button id="themeToggle" class="theme-toggle">Dark</button>
+    </a>
   </div>
-  <p>MailABom</p>
+  <p>
+    MailABom
+  </p>
 </header>
 
 <div class="container">
@@ -102,6 +118,7 @@
     </div>
   </form>
 </div>
+<script src="/js/theme.js"></script>
 <script type="module" src="/js/entities/Cart.js"></script>
 </body>
 </html>

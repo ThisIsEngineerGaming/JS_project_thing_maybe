@@ -132,11 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) form.addEventListener('submit', handleOrder);
 });
 
-// Globals for cart.html plain-script onclick handlers
 window.addToCart      = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQty      = updateQty;
 window.clearCart      = clearCart;
-
-// Exports for Webpack / Product.js import
 export default { addToCart, removeFromCart, updateQty, clearCart, loadCart, saveCart, renderCart };
