@@ -343,9 +343,10 @@ header > p {
   font-weight: 600;
   letter-spacing: 0.04em;
   cursor: pointer;
-  transition: background 0.18s, transform 0.18s;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
 }
 .add-to-cart-btn:hover { background: var(--brand-dim); color: var(--brand); transform: scale(1.04); }
+.add-to-cart-btn--added { background: #22a855 !important; color: #fff !important; cursor: default; }
 
 /* ══════════════════════════════
    LAYOUT HELPERS

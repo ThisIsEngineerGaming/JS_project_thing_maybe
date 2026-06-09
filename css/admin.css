@@ -7,11 +7,12 @@
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: #f0f4f8;
+  background: var(--bg);
 }
 
 .login-box {
-  background: #fff;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 48px 40px;
   width: 100%;
@@ -25,40 +26,42 @@
 .login-box h2 {
   text-align: center;
   font-size: 1.8rem;
-  color: #1a1a1a;
+  color: var(--text);
 }
 
 .login-sub {
   text-align: center;
   font-size: 0.85rem;
-  color: #888;
+  color: var(--text-muted);
   margin-top: -8px;
 }
 
 .login-box label {
   font-weight: 600;
   font-size: 0.9rem;
-  color: #333;
+  color: var(--text);
 }
 
 .login-box input {
   padding: 10px 14px;
-  border: 1.5px solid #ddd;
+  border: 1.5px solid var(--border);
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
+  background: var(--surface-2);
+  color: var(--text);
   transition: border-color 0.2s;
 }
 
 .login-box input:focus {
-  border-color: dodgerblue;
+  border-color: var(--brand);
 }
 
 .login-box button {
   margin-top: 8px;
   padding: 12px;
-  background: dodgerblue;
-  color: white;
+  background: var(--brand);
+  color: #fff;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -68,14 +71,15 @@
 }
 
 .login-box button:hover {
-  background: #1a7fd4;
+  background: var(--brand-dim);
+  color: var(--brand);
   transform: translateY(-1px);
 }
 
 .login-error {
-  background: #fdecea;
-  color: #c0392b;
-  border: 1px solid #f5c6c2;
+  background: var(--danger-dim);
+  color: var(--danger);
+  border: 1px solid var(--danger);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 0.9rem;
@@ -100,14 +104,14 @@
 
 .admin-header h1 {
   font-size: 2rem;
-  color: #1a1a1a;
+  color: var(--text);
   text-align: left;
 }
 
 .btn-logout {
   padding: 8px 20px;
-  background: #e74c3c;
-  color: white;
+  background: var(--danger);
+  color: #fff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -115,11 +119,12 @@
   transition: background 0.2s;
 }
 
-.btn-logout:hover { background: #c0392b; }
+.btn-logout:hover { background: var(--danger-dim); color: var(--danger); }
 
 /* SECTIONS */
 .admin-section {
-  background: #fff;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 32px 28px;
   margin-bottom: 28px;
@@ -128,7 +133,7 @@
 
 .admin-section h2 {
   font-size: 1.3rem;
-  color: #1a1a1a;
+  color: var(--text);
   margin-bottom: 20px;
   text-align: left;
   display: flex;
@@ -158,29 +163,30 @@
 .form-group label {
   font-weight: 600;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--text-muted);
 }
 
 .form-group input,
 .form-group select {
   padding: 9px 13px;
-  border: 1.5px solid #ddd;
+  border: 1.5px solid var(--border);
   border-radius: 8px;
   font-size: 0.95rem;
   outline: none;
+  background: var(--surface-2);
+  color: var(--text);
   transition: border-color 0.2s;
-  background: #fff;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: dodgerblue;
+  border-color: var(--brand);
 }
 
 .form-error {
-  background: #fdecea;
-  color: #c0392b;
-  border: 1px solid #f5c6c2;
+  background: var(--danger-dim);
+  color: var(--danger);
+  border: 1px solid var(--danger);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 0.9rem;
@@ -190,7 +196,7 @@
   align-self: flex-start;
   padding: 11px 28px;
   background: #27ae60;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -216,24 +222,24 @@
 }
 
 #productTable th {
-  background: #f0f4f8;
-  color: #555;
+  background: var(--surface-2);
+  color: var(--text-muted);
   font-weight: 700;
   padding: 12px 14px;
   text-align: left;
-  border-bottom: 2px solid #dde3ea;
+  border-bottom: 2px solid var(--border);
   white-space: nowrap;
 }
 
 #productTable td {
   padding: 11px 14px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border);
   vertical-align: middle;
-  color: #333;
+  color: var(--text);
 }
 
 #productTable tbody tr:hover {
-  background: #f7f9fc;
+  background: var(--surface-3);
 }
 
 #productTable img.thumb {
@@ -241,13 +247,13 @@
   height: 48px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
 }
 
 .btn-remove {
   padding: 6px 14px;
-  background: #e74c3c;
-  color: white;
+  background: var(--danger);
+  color: #fff;
   border: none;
   border-radius: 7px;
   font-size: 0.82rem;
@@ -258,13 +264,14 @@
 }
 
 .btn-remove:hover {
-  background: #c0392b;
+  background: var(--danger-dim);
+  color: var(--danger);
   transform: scale(1.05);
 }
 
 .count-badge {
-  background: dodgerblue;
-  color: white;
+  background: var(--brand);
+  color: #fff;
   font-size: 0.75rem;
   padding: 2px 10px;
   border-radius: 999px;
@@ -273,15 +280,15 @@
 
 /* SAVE SECTION */
 .save-section p {
-  color: #666;
+  color: var(--text-muted);
   margin-bottom: 16px;
   font-size: 0.95rem;
 }
 
 .btn-save {
   padding: 11px 28px;
-  background: #2980b9;
-  color: white;
+  background: var(--brand);
+  color: #fff;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -291,7 +298,8 @@
 }
 
 .btn-save:hover {
-  background: #1f6391;
+  background: var(--brand-dim);
+  color: var(--brand);
   transform: translateY(-1px);
 }
 
@@ -304,27 +312,27 @@
 }
 
 .save-status--saving {
-  background: #eaf4fb;
-  color: #2471a3;
-  border: 1px solid #aed6f1;
+  background: var(--brand-dim);
+  color: var(--brand);
+  border: 1px solid var(--brand);
 }
 
 .save-status--ok {
-  background: #eafaf1;
-  color: #1e8449;
-  border: 1px solid #a9dfbf;
+  background: rgba(34, 168, 85, 0.12);
+  color: #22a855;
+  border: 1px solid #22a855;
 }
 
 .save-status--error {
-  background: #fdecea;
-  color: #c0392b;
-  border: 1px solid #f5c6c2;
+  background: var(--danger-dim);
+  color: var(--danger);
+  border: 1px solid var(--danger);
 }
 
 .save-status--warn {
-  background: #fef9e7;
-  color: #b7770d;
-  border: 1px solid #f9e79f;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
 /* RESPONSIVE */

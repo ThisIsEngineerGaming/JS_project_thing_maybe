@@ -19,18 +19,6 @@ export default class Product {
 
   createCard(container) {
     let card = document.createElement("div");
-
-    card.style.backgroundColor = "white";
-    card.style.padding = "15px";
-    card.style.display = "flex";
-    card.style.flexDirection = "column";
-    card.style.alignItems = "center";
-    card.style.gap = "10px";
-    card.style.width = "200px";
-    card.style.flexShrink = "0";
-    card.style.height = "380px";
-    card.style.justifyContent = "space-between";
-    card.style.overflow = "hidden";
     card.classList.add("product-card");
 
     let img = document.createElement("img");
@@ -67,12 +55,6 @@ export default class Product {
 
     let button = document.createElement("button");
     button.textContent = "Add to cart";
-    button.style.padding = "10px";
-    button.style.backgroundColor = "black";
-    button.style.color = "white";
-    button.style.border = "none";
-    button.style.borderRadius = "10px";
-    button.style.transition = "transform 0.1s ease, background-color 0.15s ease";
     button.classList.add("add-to-cart-btn");
 
     const product = this;
@@ -82,12 +64,12 @@ export default class Product {
       setTimeout(() => { button.style.transform = "scale(1)";    }, 200);
 
       button.textContent = "Added!";
-      button.style.backgroundColor = "#22a855";
+      button.classList.add("add-to-cart-btn--added");
       button.disabled = true;
 
       setTimeout(() => {
         button.textContent = "Add to cart";
-        button.style.backgroundColor = "black";
+        button.classList.remove("add-to-cart-btn--added");
         button.disabled = false;
       }, 1200);
 
