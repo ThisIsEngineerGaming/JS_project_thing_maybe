@@ -1,12 +1,12 @@
-// cookie stuff
-// set a cookie with an expire date
+// cookie helpers
+
+// Sets a cookie with the given name, value, and lifetime in days
 function setCookie(name, value, days) {
   const expires = new Date(Date.now() + days * 864e5).toUTCString();
   document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
 }
 
- // grabs a cookie value by name
- // returns an empty string if nothing was found
+// Reads a cookie by name, returns an empty string if not found
 function getCookie(name) {
   return document.cookie.split('; ').reduce((r, v) => {
     const [key, ...val] = v.split('=');
@@ -14,7 +14,7 @@ function getCookie(name) {
   }, '');
 }
 
-// deletes a cookie by setting its expire date to the past
+// Deletes a cookie by forcing its expiry date into the past
 function deleteCookie(name) {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 }
@@ -23,8 +23,8 @@ function deleteCookie(name) {
 
 const CART_COOKIE = 'mailabom_cart'; // cookie key for storing the serialized cart
 const CART_DAYS   = 7;               // cart cookie lifetime in days
- // loads and parses the cart array from the cookie
- // returns an empty array if the cookie is missing
+
+// Reads and parses the cart array from the cookie; returns [] if the cookie is missing or malformed
 function loadCart() {
   try {
     const raw = getCookie(CART_COOKIE);
@@ -33,13 +33,15 @@ function loadCart() {
     return [];
   }
 }
- // serializes the cart array and writes it to the cookie
+
+// Serializes the cart array and writes it to the cart cookie
 function saveCart(cart) {
   setCookie(CART_COOKIE, JSON.stringify(cart), CART_DAYS);
 }
 
 // cart operations
- // adds an item to the cart. if an item with the same ID already exists its quantity is incremented instead of adding a duplicate entry
+
+// Adds an item to the cart; increments qty if the same ID already exists, otherwise pushes a new entry
 function addToCart(item) {
   const cart     = loadCart();
   const existing = cart.find(i => i.id === item.id);
@@ -51,14 +53,15 @@ function addToCart(item) {
   saveCart(cart);
   renderCart();
 }
- // removes an item from the cart entirely by its ID
+
+// Removes an item from the cart entirely by its ID
 function removeFromCart(id) {
   const cart = loadCart().filter(i => i.id !== id);
   saveCart(cart);
   renderCart();
 }
- // adjusts the quantity of a cart item using delta (+1 or -1)
- // removes the item automatically if its quantity drops to zero or below
+
+// Changes a cart item's quantity by delta (+1 or -1); removes the item if qty drops to 0 or below
 function updateQty(id, delta) {
   const cart = loadCart();
   const item = cart.find(i => i.id === id);
@@ -68,15 +71,17 @@ function updateQty(id, delta) {
   saveCart(cart);
   renderCart();
 }
- // clears all items from the cart by deleting the cookie
+
+// Empties the entire cart by deleting its cookie
 function clearCart() {
   deleteCookie(CART_COOKIE);
   renderCart();
 }
 
-// visual part
- // renders the current cart into the #cart-items element
- // updates the #cart-total span with the computed sum
+// rendering
+
+// Renders the current cart into #cart-items and updates the #cart-total span
+// Shows an empty-cart message if there are no items
 function renderCart() {
   const list  = document.getElementById('cart-items');
   const total = document.getElementById('cart-total');
@@ -113,9 +118,9 @@ function renderCart() {
   if (total) total.textContent = sum.toFixed(2);
 }
 
-// submitting the order
- // handles the order form submission
- // validates that the cart is non-empty, collects form values into an order object, logs it, clears the cart, and resets the form
+// order submission
+
+// Handles the order form submit: validates the cart is non-empty, collects all form field values into an order object, logs it, clears the cart, and resets the form
 function handleOrder(e) {
   e.preventDefault();
 
@@ -144,14 +149,14 @@ function handleOrder(e) {
   form.reset();
 }
 
-// bootstrap
+// bootstrap — runs on DOMContentLoaded to do the initial cart render and attach the order form handler
 document.addEventListener('DOMContentLoaded', () => {
-  renderCart(); // add content as soon as
-  // Attach submit handler if a form is present on the page
+  renderCart();
   const form = document.querySelector('form');
   if (form) form.addEventListener('submit', handleOrder);
 });
-// expose cart functions globally so buttons can reach them
+
+// Expose cart functions on window so inline onclick attributes in the rendered HTML can reach them
 window.addToCart      = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQty      = updateQty;

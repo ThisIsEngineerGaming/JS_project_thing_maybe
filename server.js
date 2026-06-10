@@ -10,7 +10,7 @@ const PRODUCTS_PATH = path.join(__dirname, "json", "products.json");
 app.use(cors());
 app.use(express.json());
 
-// GET /api/products — read and return the current products.json
+// GET /api/products — reads products.json from disk and returns its contents as JSON
 app.get("/api/products", (req, res) => {
   try {
     const data = fs.readFileSync(PRODUCTS_PATH, "utf-8");
@@ -21,7 +21,8 @@ app.get("/api/products", (req, res) => {
   }
 });
 
-// POST /api/products — receive the full product array and overwrite products.json
+// POST /api/products — receives the full product array in the request body and overwrites products.json
+// Returns { success, count } on success, or an error object on failure
 app.post("/api/products", (req, res) => {
   try {
     const products = req.body;

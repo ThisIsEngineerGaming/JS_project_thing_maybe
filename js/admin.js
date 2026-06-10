@@ -1,9 +1,7 @@
-
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "admin123";
 
 const LS_KEY = "adminProducts";
-
 
 const CATEGORIES = {
   1: "Food",
@@ -36,6 +34,8 @@ const productCount   = document.getElementById("productCount");
 const saveBtn        = document.getElementById("saveBtn");
 const saveStatus     = document.getElementById("saveStatus");
 
+// Populates the category and manufacturer <select> dropdowns in the add-product form
+// using the CATEGORIES and MANUFACTURERS lookup objects
 function populateDropdowns() {
   const catSelect = document.getElementById("f-category");
   const mfrSelect = document.getElementById("f-manufacturer");
@@ -55,16 +55,20 @@ function populateDropdowns() {
   });
 }
 
+// Hides the login screen and shows the admin panel
 function showPanel() {
   loginScreen.style.display = "none";
   adminPanel.style.display  = "block";
 }
 
+// Hides the admin panel and shows the login screen
 function showLogin() {
   loginScreen.style.display = "flex";
   adminPanel.style.display  = "none";
 }
 
+// Checks entered credentials against the hardcoded admin user/pass;
+// shows the panel and loads products on success, or shows an error on failure
 loginBtn.addEventListener("click", () => {
   const user = usernameInput.value.trim();
   const pass = passwordInput.value;
@@ -79,18 +83,22 @@ loginBtn.addEventListener("click", () => {
   }
 });
 
+// Allow logging in by pressing Enter in either the username or password field
 [usernameInput, passwordInput].forEach(el => {
   el.addEventListener("keydown", e => {
     if (e.key === "Enter") loginBtn.click();
   });
 });
 
+// Clears the login fields and returns to the login screen on logout
 logoutBtn.addEventListener("click", () => {
   usernameInput.value = "";
   passwordInput.value = "";
   showLogin();
 });
 
+// Fetches the product list from the API (falls back to products.json if the server is down),
+// stores it in the products array, seeds the next ID counter, and renders the table
 function loadProducts() {
   fetch("/api/products")
     .then(r => r.json())
@@ -112,6 +120,8 @@ function loadProducts() {
     });
 }
 
+// Clears and rebuilds the product table from the current products array;
+// shows a placeholder row when there are no products
 function renderTable() {
   tableBody.innerHTML = "";
   productCount.textContent = products.length;
@@ -143,6 +153,8 @@ function renderTable() {
   });
 }
 
+// Handles clicks on any "Remove" button in the table via event delegation;
+// confirms with the user, removes the product from the array, re-renders, and saves to the server
 tableBody.addEventListener("click", e => {
   const btn = e.target.closest(".btn-remove");
   if (!btn) return;
@@ -155,6 +167,8 @@ tableBody.addEventListener("click", e => {
   saveToServer();
 });
 
+// Handles the add-product form submission: validates all fields, builds a new product object,
+// pushes it to the products array, re-renders the table, and saves to the server
 addForm.addEventListener("submit", () => {
   const name           = document.getElementById("f-name").value.trim();
   const imageUrl       = document.getElementById("f-image").value.trim();
@@ -202,11 +216,14 @@ addForm.addEventListener("submit", () => {
   document.getElementById("productTable").scrollIntoView({ behavior: "smooth" });
 });
 
+// Displays an error message inside the add-product form
 function showAddError(msg) {
   addError.textContent = msg;
   addError.style.display = "block";
 }
 
+// POSTs the full products array to /api/products to overwrite products.json on the server,
+// then updates the save-status indicator based on the result
 function saveToServer() {
   setStatus("Saving...", "saving");
 
@@ -228,8 +245,11 @@ function saveToServer() {
     });
 }
 
+// Trigger a manual save when the Save button is clicked
 saveBtn.addEventListener("click", saveToServer);
 
+// Updates the #saveStatus element with a message and a CSS modifier class;
+// auto-hides the element after 4 seconds for "ok" status
 function setStatus(msg, type) {
   saveStatus.textContent = msg;
   saveStatus.className   = "save-status save-status--" + type;
@@ -240,6 +260,7 @@ function setStatus(msg, type) {
   }
 }
 
+// Escapes special HTML characters in a string to prevent XSS when injecting into innerHTML
 function escHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")

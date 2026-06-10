@@ -2,6 +2,7 @@ import cartModule from "./Cart.js";
 const addToCart = cartModule.default?.addToCart ?? cartModule.addToCart;
 
 export default class Product {
+  // Creates a product with pricing, rating, category, and manufacturer references
   constructor(id, imageUrl, name, rating, price, discountedPrice, category, manufacturer) {
     this.id = id;
     this.imageUrl = imageUrl;
@@ -13,10 +14,14 @@ export default class Product {
     this.manufacturer = manufacturer;
   }
 
+  // Calculates and returns the discount percentage relative to the original price
   getDiscountPercent() {
     return Math.round(((this.price - this.discountedPrice) / this.price) * 100);
   }
 
+  // Builds and injects a product card DOM element into the given container
+  // Shows the image, name, star rating, original/discounted price, and an "Add to cart" button
+  // The button triggers a brief scale animation and a short "Added!" state on click, then adds the item to the cart
   createCard(container) {
     let card = document.createElement("div");
     card.classList.add("product-card");
