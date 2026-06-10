@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>Cart</title>
   <style>
+    /* Override the form's default centered/absolute positioning from style.css
+       so it renders as a normal block element on the cart page. */
     form {
       position: static;
       transform: none;
@@ -23,25 +25,21 @@
 <header>
   <div class="navigation">
     <a href="/html/products.html">
-      <button id="productsnav">
-        Products
-      </button>
+      <button id="productsnav">Products</button>
     </a>
     <a href="/index.html">
-      <button id="homepagenav">
-        Homepage
-      </button>
+      <button id="homepagenav">Homepage</button>
     </a>
     <a href="/html/cart.html">
-      <button id="cartnav">
-        Cart
-      </button>
+      <button id="cartnav">Cart</button>
     </a>
     <a>
+      <!-- the script that toggles themes using cookies -->
       <button id="themeToggle" class="theme-toggle">Dark</button>
     </a>
   </div>
-  <p>
+  <p class="brand-logo">
+    <img src="/icon.png" alt="" class="brand-icon" aria-hidden="true">
     MailABom
   </p>
 </header>
@@ -49,19 +47,28 @@
 <div class="container">
   <form>
     <div class="grid">
+
+      <!-- cart items -->
       <div class="cart-panel">
         <div class="section-title">Your Items</div>
+
+        <!-- updates added items using renderCart() -->
         <div id="cart-items">
           <p class="empty-cart">Your cart is empty.</p>
         </div>
+
         <div class="cart-total-row">
           <span>Total</span>
+          <!-- updates price using renderCart() -->
           <span>$<span id="cart-total">0.00</span></span>
         </div>
+
         <button type="button" class="clear-cart-btn" onclick="window.clearCart()">
           Clear cart
         </button>
       </div>
+
+      <!-- customer info -->
       <div>
         <div class="section-title">Info</div>
         <div class="field">
@@ -74,6 +81,8 @@
           <input type="text" placeholder="Special Instructions" maxlength="120">
         </div>
       </div>
+
+      <!-- delivery options -->
       <div>
         <div class="section-title">Delivery</div>
         <div class="field">
@@ -90,6 +99,8 @@
           <input type="text" placeholder="City, Street" minlength="5" maxlength="80" required>
         </div>
       </div>
+
+      <!-- way of payment -->
       <div>
         <div class="section-title">Payment</div>
         <label class="radio-row">
@@ -101,12 +112,15 @@
           Card
         </label>
       </div>
+
+      <!-- extras-->
       <div>
         <label class="checkbox-row">
           <input type="checkbox" name="register">
           Register
         </label>
         <label class="checkbox-row">
+          <!-- checked by default, customer opts out of a confirmation call -->
           <input type="checkbox" name="no_call" checked>
           The decision is final, don't call me back.
         </label>

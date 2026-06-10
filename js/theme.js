@@ -1,6 +1,7 @@
-const root = document.documentElement;
+const root   = document.documentElement;
 const toggle = document.getElementById("themeToggle");
 
+// set a cookie with an expire date
 function setCookie(name, value, days = 365) {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -9,6 +10,7 @@ function setCookie(name, value, days = 365) {
     `${name}=${value};expires=${date.toUTCString()};path=/`;
 }
 
+// grab a cookie value by name
 function getCookie(name) {
   const cookies = document.cookie.split(";");
 
@@ -23,6 +25,7 @@ function getCookie(name) {
   return null;
 }
 
+// apply the theme to the root element and update the button text
 function applyTheme(theme) {
   root.setAttribute("data-theme", theme);
 
@@ -31,9 +34,11 @@ function applyTheme(theme) {
   }
 }
 
+// load saved theme from cookie
 const savedTheme = getCookie("theme") || "dark";
 applyTheme(savedTheme);
 
+// toggle theme on button click and save the choice using cookies
 if (toggle) {
   toggle.addEventListener("click", () => {
     const current = root.getAttribute("data-theme") || "dark";
