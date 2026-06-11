@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // expose cart functions on window so buttons in the rendered HTML can reach them
-window.addToCart      = addToCart;
+window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
-window.updateQty      = updateQty;
-window.clearCart      = clearCart;
+window.updateQty = updateQty;
+window.clearCart = clearCart;
 
 export default { addToCart, removeFromCart, updateQty, clearCart, loadCart, saveCart, renderCart };
