@@ -1,12 +1,11 @@
 // cookie helpers
-
-// Sets a cookie with the given name, value, and lifetime in days
+// sets a cookie with the given name, value, and lifetime in days
 function setCookie(name, value, days) {
   const expires = new Date(Date.now() + days * 864e5).toUTCString();
   document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
 }
 
-// Reads a cookie by name, returns an empty string if not found
+// reads a cookie by name, returns an empty string if not found
 function getCookie(name) {
   return document.cookie.split('; ').reduce((r, v) => {
     const [key, ...val] = v.split('=');
@@ -14,7 +13,7 @@ function getCookie(name) {
   }, '');
 }
 
-// Deletes a cookie by forcing its expiry date into the past
+// deletes the cookie by setting expire date into the past
 function deleteCookie(name) {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 }
@@ -24,7 +23,7 @@ function deleteCookie(name) {
 const CART_COOKIE = 'mailabom_cart'; // cookie key for storing the serialized cart
 const CART_DAYS   = 7;               // cart cookie lifetime in days
 
-// Reads and parses the cart array from the cookie; returns [] if the cookie is missing or malformed
+// reads and parses the cart array from the cookie; returns [] if the cookie is missing or malformed
 function loadCart() {
   try {
     const raw = getCookie(CART_COOKIE);
@@ -34,14 +33,14 @@ function loadCart() {
   }
 }
 
-// Serializes the cart array and writes it to the cart cookie
+// serializes the cart array and writes it to the cart cookie
 function saveCart(cart) {
   setCookie(CART_COOKIE, JSON.stringify(cart), CART_DAYS);
 }
 
 // cart operations
 
-// Adds an item to the cart; increments qty if the same ID already exists, otherwise pushes a new entry
+// adds an item to the cart; increments qty if the same ID already exists, otherwise pushes a new entry
 function addToCart(item) {
   const cart     = loadCart();
   const existing = cart.find(i => i.id === item.id);
@@ -54,14 +53,14 @@ function addToCart(item) {
   renderCart();
 }
 
-// Removes an item from the cart entirely by its ID
+// removes an item from the cart entirely by its ID
 function removeFromCart(id) {
   const cart = loadCart().filter(i => i.id !== id);
   saveCart(cart);
   renderCart();
 }
 
-// Changes a cart item's quantity by delta (+1 or -1); removes the item if qty drops to 0 or below
+// changes a cart item's quantity by delta (+1 or -1); removes the item if quantity drops to 0 or below
 function updateQty(id, delta) {
   const cart = loadCart();
   const item = cart.find(i => i.id === id);
@@ -72,7 +71,7 @@ function updateQty(id, delta) {
   renderCart();
 }
 
-// Empties the entire cart by deleting its cookie
+// empties the entire cart by deleting its cookie
 function clearCart() {
   deleteCookie(CART_COOKIE);
   renderCart();
@@ -80,8 +79,8 @@ function clearCart() {
 
 // rendering
 
-// Renders the current cart into #cart-items and updates the #cart-total span
-// Shows an empty-cart message if there are no items
+// renders the current cart into #cart-items and updates the #cart-total span
+// shows an empty-cart message if there are no items
 function renderCart() {
   const list  = document.getElementById('cart-items');
   const total = document.getElementById('cart-total');
@@ -119,8 +118,7 @@ function renderCart() {
 }
 
 // order submission
-
-// Handles the order form submit: validates the cart is non-empty, collects all form field values into an order object, logs it, clears the cart, and resets the form
+// handles the order form submit: validates the cart is non-empty, collects all form field values into an order object, logs it, clears the cart, and resets the form
 function handleOrder(e) {
   e.preventDefault();
 
@@ -156,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) form.addEventListener('submit', handleOrder);
 });
 
-// Expose cart functions on window so inline onclick attributes in the rendered HTML can reach them
+// expose cart functions on window so buttons in the rendered HTML can reach them
 window.addToCart      = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQty      = updateQty;
