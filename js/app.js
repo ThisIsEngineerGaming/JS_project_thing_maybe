@@ -4,6 +4,8 @@ import Manufacturer from "./entities/Manufacturer.js";
 import Customer from "./entities/Customer.js";
 import Order from "./entities/Order.js";
 import "./entities/Scroller.js";
+import { db } from "./firebase.js";
+import { collection, getDocs, doc, setDoc, deleteDoc } from "firebase/firestore";
 
 // Static data — category and manufacturer lookup maps keyed by ID
 const categories = {
@@ -23,10 +25,10 @@ const manufacturers = {
 
 const customer = new Customer(1, "Jonkler", "Carlick", "john@gmail.com", "+123456789");
 
-// Converts a raw product data object (from JSON) into a full Product instance,
-// resolving its category and manufacturer from the lookup maps (falling back to ID 1 if missing)
+// Converts a raw product data object into a full Product instance,
+// resolving its category and manufacturer from the lookup maps
 function createProductInstance(item) {
-  const category     = categories[item.categoryId]     ?? categories[1];
+  const category     = categories[item.categoryId]        ?? categories[1];
   const manufacturer = manufacturers[item.manufacturerId] ?? manufacturers[1];
   return new Product(
     item.id, item.imageUrl, item.name, item.rating,
@@ -34,16 +36,21 @@ function createProductInstance(item) {
   );
 }
 
+// Fetches all products from the Firestore "products" collection and returns them as plain objects
+function fetchProducts() {
+  return getDocs(collection(db, "products")).then(snapshot => {
+    return snapshot.docs.map(d => d.data());
+  });
+}
 
-//INDEX PAGE
-// Detects whether we're on index.html by checking for #products without a nested #productsContainer
+
+// ── INDEX PAGE ──────────────────────────────────────────────────────────────
 const homepageContainer = (() => {
   const el = document.getElementById("products");
   return el && !document.getElementById("productsContainer") ? el : null;
 })();
 
 if (homepageContainer) {
-  // Create a flex grid inside the homepage products section
   const grid = document.createElement("div");
   grid.style.display = "flex";
   grid.style.flexWrap = "wrap";
@@ -51,30 +58,27 @@ if (homepageContainer) {
   grid.style.gap = "20px";
   homepageContainer.appendChild(grid);
 
-  // Fetch products.json and render the first 8 as a preview grid
-  fetch("/json/products.json")
-    .then(r => r.json())
-    .then(data => {
-      const preview = data.slice(0, 8);
-      const instances = preview.map(item => {
-        const p = createProductInstance(item);
-        p.createCard(grid);
-        return p;
-      });
-
-      // Demo: create an Order and log some entity method outputs to the console
-      const order = new Order(1, customer, instances, "Created", new Date());
-      console.log(categories[1].getInfo());
-      console.log(manufacturers[1].getCompanyAge());
-      console.log(customer.getFullName());
-      console.log(order.status);
-      order.changeStatus("Delivered");
-      console.log(order.status);
+  // Fetch products from Firestore and render the first 8 as a preview grid
+  fetchProducts().then(data => {
+    const preview = data.slice(0, 8);
+    const instances = preview.map(item => {
+      const p = createProductInstance(item);
+      p.createCard(grid);
+      return p;
     });
+
+    const order = new Order(1, customer, instances, "Created", new Date());
+    console.log(categories[1].getInfo());
+    console.log(manufacturers[1].getCompanyAge());
+    console.log(customer.getFullName());
+    console.log(order.status);
+    order.changeStatus("Delivered");
+    console.log(order.status);
+  });
 }
 
 
-// ── PRODUCTS PAGE
+// ── PRODUCTS PAGE ────────────────────────────────────────────────────────────
 const productsContainer = document.getElementById("productsContainer");
 
 if (productsContainer) {
@@ -94,7 +98,7 @@ if (productsContainer) {
   const ratingList       = document.getElementById("ratingList");
 
   // Reads unique category and manufacturer IDs from the product data and
-  // injects a <li class="filter-item"> for each into the sidebar lists
+  // injects a filter item for each into the sidebar lists
   function populateSidebar(data) {
     const catIds = [...new Set(data.map(p => p.categoryId))];
     catIds.forEach(id => {
@@ -117,8 +121,8 @@ if (productsContainer) {
     });
   }
 
-  // Filters allProducts against the current search query, category, manufacturer, and rating selections,
-  // then re-renders matching products into productsContainer and updates the results count
+  // Filters allProducts against the current search/category/manufacturer/rating state
+  // and re-renders matching products into productsContainer
   function applyFilters() {
     const query = searchQuery.toLowerCase().trim();
 
@@ -147,7 +151,7 @@ if (productsContainer) {
     });
   }
 
-  // Attaches a click handler to a sidebar filter list; highlights the clicked item and calls onSelect with its data value
+  // Attaches a click handler to a sidebar filter list and calls onSelect with the clicked item's data value
   function bindFilterList(listEl, dataKey, onSelect) {
     listEl.addEventListener("click", e => {
       const item = e.target.closest(".filter-item");
@@ -158,7 +162,7 @@ if (productsContainer) {
     });
   }
 
-  // Update searchQuery and re-filter on every keystroke; show/hide the clear button accordingly
+  // Update searchQuery and re-filter on every keystroke
   searchInput.addEventListener("input", () => {
     searchQuery = searchInput.value;
     clearBtn.style.display = searchQuery ? "flex" : "none";
@@ -174,17 +178,15 @@ if (productsContainer) {
     applyFilters();
   });
 
-  // Wire up the three sidebar filter lists to their respective active-filter state variables
+  // Wire up the three sidebar filter lists
   bindFilterList(categoryList,     "category",     val => { activeCategory     = val; applyFilters(); });
   bindFilterList(manufacturerList, "manufacturer", val => { activeManufacturer = val; applyFilters(); });
   bindFilterList(ratingList,       "rating",       val => { activeRating       = val; applyFilters(); });
 
-  // Fetch all products, populate the sidebar, then render the initial (unfiltered) product grid
-  fetch("/json/products.json")
-    .then(r => r.json())
-    .then(data => {
-      allProducts = data;
-      populateSidebar(data);
-      applyFilters();
-    });
+  // Fetch all products from Firestore, populate the sidebar, then render the initial product grid
+  fetchProducts().then(data => {
+    allProducts = data;
+    populateSidebar(data);
+    applyFilters();
+  });
 }

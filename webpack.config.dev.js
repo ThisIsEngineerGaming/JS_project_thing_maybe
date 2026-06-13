@@ -9,6 +9,9 @@ module.exports = merge(common, {
     hot: true,
     open: true,
     static: ['./'],
+    devMiddleware: {
+      writeToDisk: true,
+    },
     proxy: [
       {
         context: ['/api'],
